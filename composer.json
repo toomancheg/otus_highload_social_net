@@ -1,0 +1,26 @@
+{
+  "name": "social-network/docker",
+  "description": "Social Network Application with Docker",
+  "type": "project",
+  "require": {
+    "php": ">=8.2.0"
+  },
+  "autoload": {
+    "classmap": [
+      "controllers/",
+      "models/"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "chmod -R 755 ."
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

@@ -1,0 +1,42 @@
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: social_network_db
+    environment:
+      POSTGRES_DB: social_network
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - social-network
+
+  php:
+    build: .
+    container_name: social
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: social_network
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./public:/var/www/html/public
+    networks:
+      - social-network
+
+volumes:
+  postgres_data:
+
+networks:
+  social-network:
+    driver: bridge
