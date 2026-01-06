@@ -1,82 +1,418 @@
 {
   "info": {
-    "name": "Social Network API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "name": "Social Network API - Complete Examples",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Полная коллекция для тестирования API социальной сети с реальными примерами данных"
   },
   "item": [
     {
-      "name": "Регистрация пользователя",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"first_name\": \"Иван\",\n    \"last_name\": \"Иванов\",\n    \"birth_date\": \"1990-01-01\",\n    \"gender\": \"male\",\n    \"interests\": \"программирование, спорт\",\n    \"city\": \"Москва\",\n    \"country\": \"Россия\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8080/user/register",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "user",
-            "register"
-          ]
-        }
-      }
-    },
-    {
-      "name": "Авторизация",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
-        },
-        "url": {
-          "raw": "http://localhost:8080/login",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "login"
-          ]
-        }
-      }
-    },
-    {
-      "name": "Получить профиль пользователя",
+      "name": "📋 Проверка здоровья приложения",
       "request": {
         "method": "GET",
+        "header": [],
         "url": {
-          "raw": "http://localhost:8080/user/get/1",
+          "raw": "{{base_url}}/",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["{{base_url}}"],
           "port": "8080",
-          "path": [
-            "user",
-            "get",
-            "1"
-          ]
+          "path": []
         }
+      },
+      "response": []
+    },
+    {
+      "name": "👥 Регистрация пользователей",
+      "item": [
+        {
+          "name": "1. Регистрация мужчины (Иван)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"ivan.ivanov@example.com\",\n    \"password\": \"SecurePass123!\",\n    \"first_name\": \"Иван\",\n    \"last_name\": \"Иванов\",\n    \"birth_date\": \"1990-05-15\",\n    \"gender\": \"male\",\n    \"interests\": \"программирование, футбол, рыбалка, автомобили\",\n    \"city\": \"Москва\",\n    \"country\": \"Россия\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/register",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Регистрация женщины (Мария)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"maria.petrova@example.com\",\n    \"password\": \"StrongPassword456@\",\n    \"first_name\": \"Мария\",\n    \"last_name\": \"Петрова\",\n    \"birth_date\": \"1995-08-22\",\n    \"gender\": \"female\",\n    \"interests\": \"йога, чтение, путешествия, фотография\",\n    \"city\": \"Санкт-Петербург\",\n    \"country\": \"Россия\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/register",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Регистрация без дополнительных полей",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"simple.user@example.com\",\n    \"password\": \"simple123\",\n    \"first_name\": \"Алексей\",\n    \"last_name\": \"Сидоров\",\n    \"birth_date\": \"1985-12-10\",\n    \"gender\": \"male\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/register",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Регистрация с разными гендерами",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"other.user@example.com\",\n    \"password\": \"password123\",\n    \"first_name\": \"Алекс\",\n    \"last_name\": \"Смирнов\",\n    \"birth_date\": \"2000-03-30\",\n    \"gender\": \"other\",\n    \"interests\": \"искусство, музыка, кино\",\n    \"city\": \"Екатеринбург\",\n    \"country\": \"Россия\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/register",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "register"])
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5. Неудачная регистрация (неправильный email)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"not-an-email\",\n    \"password\": \"password123\",\n    \"first_name\": \"Ошибка\",\n    \"last_name\": \"Ошибочный\",\n    \"birth_date\": \"1990-01-01\",\n    \"gender\": \"male\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/register",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "register"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "🔐 Авторизация пользователей",
+      "item": [
+        {
+          "name": "1. Успешная авторизация (Иван)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"ivan.ivanov@example.com\",\n    \"password\": \"SecurePass123!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Успешная авторизация (Мария)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"maria.petrova@example.com\",\n    \"password\": \"StrongPassword456@\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Неверный пароль",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"ivan.ivanov@example.com\",\n    \"password\": \"WrongPassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Несуществующий пользователь",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"nonexistent@example.com\",\n    \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "👤 Получение анкет",
+      "item": [
+        {
+          "name": "1. Получение анкеты Ивана (ID: 1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/user/get/1",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "get", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Получение анкеты Марии (ID: 2)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/user/get/2",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "get", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Получение несуществующей анкеты",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/user/get/999",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "get", "999"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Получение анкеты с неверным ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/user/get/abc",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "get", "abc"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "🔄 Полный цикл работы",
+      "item": [
+        {
+          "name": "Шаг 1: Регистрация нового пользователя",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"demo.user@example.com\",\n    \"password\": \"DemoPass789!\",\n    \"first_name\": \"Демо\",\n    \"last_name\": \"Пользователь\",\n    \"birth_date\": \"1992-11-05\",\n    \"gender\": \"male\",\n    \"interests\": \"тестирование, разработка, спорт\",\n    \"city\": \"Казань\",\n    \"country\": \"Россия\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/user/register",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Шаг 2: Авторизация нового пользователя",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"demo.user@example.com\",\n    \"password\": \"DemoPass789!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Шаг 3: Получение анкеты нового пользователя",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/user/get/3",
+              "protocol": "http",
+              "host": ["{{base_url}}"],
+              "port": "8080",
+              "path": ["user", "get", "3"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "localhost:8080",
+      "type": "string",
+      "description": "Базовый URL API"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "console.log('Запуск теста в: ' + new Date().toISOString());"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Статус ответа 200\", function () {",
+          "    pm.response.to.have.status(200);",
+          "});",
+          "",
+          "pm.test(\"Ответ в формате JSON\", function () {",
+          "    pm.response.to.be.json;",
+          "});"
+        ]
       }
     }
-  ]
+  ],
+  "auth": null
 }
