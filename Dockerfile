@@ -28,5 +28,4 @@ COPY docker/php/php.ini /usr/local/etc/php/conf.d/custom.ini
 WORKDIR /var/www/html
 
 
-
 EXPOSE 80

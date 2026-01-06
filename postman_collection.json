@@ -5,7 +5,7 @@
   },
   "item": [
     {
-      "name": "Register User",
+      "name": "Регистрация пользователя",
       "request": {
         "method": "POST",
         "header": [
@@ -19,12 +19,12 @@
           "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\",\n    \"first_name\": \"Иван\",\n    \"last_name\": \"Иванов\",\n    \"birth_date\": \"1990-01-01\",\n    \"gender\": \"male\",\n    \"interests\": \"программирование, спорт\",\n    \"city\": \"Москва\",\n    \"country\": \"Россия\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8000/user/register",
+          "raw": "http://localhost:8080/user/register",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "8000",
+          "port": "8080",
           "path": [
             "user",
             "register"
@@ -33,7 +33,7 @@
       }
     },
     {
-      "name": "Login",
+      "name": "Авторизация",
       "request": {
         "method": "POST",
         "header": [
@@ -47,12 +47,12 @@
           "raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:8000/login",
+          "raw": "http://localhost:8080/login",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "8000",
+          "port": "8080",
           "path": [
             "login"
           ]
@@ -60,16 +60,16 @@
       }
     },
     {
-      "name": "Get User Profile",
+      "name": "Получить профиль пользователя",
       "request": {
         "method": "GET",
         "url": {
-          "raw": "http://localhost:8000/user/get/1",
+          "raw": "http://localhost:8080/user/get/1",
           "protocol": "http",
           "host": [
             "localhost"
           ],
-          "port": "8000",
+          "port": "8080",
           "path": [
             "user",
             "get",

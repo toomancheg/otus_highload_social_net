@@ -7,8 +7,8 @@
   },
   "autoload": {
     "classmap": [
-      "controllers/",
-      "models/"
+      "src/controllers/",
+      "src/models/"
     ]
   },
   "scripts": {

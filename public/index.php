@@ -28,7 +28,6 @@ $basePath = '/';
 $path = str_replace($basePath, '', $requestUri);
 $path = trim($path, '/');
 
-// Маршрутизация
 try {
     switch (true) {
         case $path === 'login' && $requestMethod === 'POST':
