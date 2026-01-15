@@ -9,7 +9,8 @@ class UserController extends BaseController {
         $this->userModel = new User();
     }
 
-    public function register() {
+    public function register(): void
+    {
         $input = $this->getJsonInput();
 
         $requiredFields = [

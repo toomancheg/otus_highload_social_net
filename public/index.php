@@ -30,6 +30,11 @@ $path = trim($path, '/');
 
 try {
     switch (true) {
+        case $path === 'index' && $requestMethod === 'GET':
+            $controller = new BaseController();
+            $controller->index();
+            break;
+
         case $path === 'login' && $requestMethod === 'POST':
             $controller = new AuthController();
             $controller->login();

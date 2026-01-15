@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: social_network_db
+    container_name: social_db
     ports:
       - "5432:5432"
     volumes:
@@ -15,6 +15,8 @@ services:
     container_name: social
     depends_on:
       - postgres
+    ports:
+      - 8080:80
     volumes:
       - ./src:/var/www/html
       - ./public:/var/www/html/public

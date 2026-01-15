@@ -1,6 +1,14 @@
 <?php
 
 class BaseController {
+    public function index($statusCode = 200)
+    {
+        http_response_code($statusCode);
+        header('Content-Type: application/json');
+        echo json_encode("test", JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+
     protected function jsonResponse($data, $statusCode = 200) {
         http_response_code($statusCode);
         header('Content-Type: application/json');
